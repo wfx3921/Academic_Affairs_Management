@@ -1,0 +1,77 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+spring:
+  servlet:
+        multipart:
+          max-file-size: 10MB
+          max-request-size: 10MB
+  application:
+    #应用名称，此属性有无均可
+    name: Surgical_Risk_Prediction
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/academic_affairs7?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 123456
+      hikari:
+        maximum-pool-size: 50
+        minimum-idle: 30
+        connection-timeout: 30000
+        idle-timeout: 30000
+        max-lifetime: 1800000
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: 1095557027@qq.com                     # 替换为你的邮箱
+    password: gfvslkvlqqmthagi                      # 替换为你获取的授权码
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+aws:
+  secrets:
+    manager:
+
+
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  database: 0
+  timeout: 5000ms
+  lettuce:
+    pool:
+      max-active: 50   # 最大连接数
+      max-idle: 20     # 最大空闲连接
+      min-idle: 5      # 最小空闲连接
+      max-wait: 2000   # 获取连接最大等待时间(ms)
+
+
+file:
+  upload-dir: C:/uploads
+
+
+
+
+
+
